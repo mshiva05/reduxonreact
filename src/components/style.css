@@ -1,0 +1,44 @@
+.title {
+  padding: 100;
+  margin: 10;
+  color: teal;
+  border-bottom: 2px solid gray;
+  text-align: center;
+}
+
+.item {
+  padding: 10px;
+  margin: 10px;
+  background-color: teal;
+  color: white;
+  border: 2px solid lightgray;
+  border-radius: 5px;
+  width: 300px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  width: 100px;
+  background: white;
+  border: 0;
+  padding: 10px;
+  border-radius: 100px;
+  outline: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: tomato;
+  color: white;
+  font-size: large;
+}
+
+.items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
