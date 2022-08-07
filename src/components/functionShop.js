@@ -1,8 +1,8 @@
 import React from 'react'
 import './style.css'
 import { connect, useSelector } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import { buyLaptop, buyMobile, fetchUsers } from '../redux/actions'
+import { bindActionCreators } from 'redux'
 // connect is a higher order component
 
 function FunctionShop(props) {
@@ -13,14 +13,12 @@ function FunctionShop(props) {
   //   clickHandler = () => {
   //     this.setState({ numOfLaptops: this.state.numOfLaptops - 1 })
   //   }
-
   let users = useSelector((state) => state.users.users)
-  let numOfLaptops = useSelector((state) => state.laptops.numOfLaptops)
   let numOfMobiles = useSelector((state) => state.mobiles.numOfMobiles)
-
+  let numOfLaptops = useSelector((state) => state.laptops.numOfLaptops)
   return (
     <div>
-      <h1 className="title">Welcome to Shop</h1>
+      <h1 className="title">Welcome to FunctionShop</h1>
       <div className="items">
         <div className="item">
           <p>Dell Inspiron Laptop</p>
@@ -42,22 +40,22 @@ function FunctionShop(props) {
   )
 }
 
-// This has been replaced by useSelector
-// const mapStateToProps = (state) => {
-//   return {
-//     numOfLaptops: state.laptops.numOfLaptops,
-//     numOfMobiles: state.mobiles.numOfMobiles,
-//   }
-// }
+const mapStateToProps = (state) => {
+  return {
+    numOfLaptops: state.laptops.numOfLaptops,
+    numOfMobiles: state.mobiles.numOfMobiles,
+    users: state.users.users,
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ buyLaptop, buyMobile, fetchUsers }, dispatch)
-  //   bindActionCreators is replacing below code
-  //   {
-  //     buyLaptop: () => dispatch(buyLaptop()),
-  //     buyMobile: () => dispatch(buyMobile()),
-  //     fetchUsers: () => dispatch(fetchUsers()),
-  //   }
+  //  return {
+  //   buyLaptop: () => dispatch(buyLaptop()),
+  //   buyMobile: () => dispatch(buyMobile()),
+  //   fetchUsers: () => dispatch(fetchUsers()),
+  //   // bindActionCreators(),
+  // }
 }
 
-export default connect(mapDispatchToProps)(FunctionShop)
+export default connect(mapStateToProps, mapDispatchToProps)(FunctionShop)
